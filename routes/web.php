@@ -13,4 +13,5 @@ Route::get('/about', function () {
 
 use App\Http\Controllers\ProjectController;
 
-Route::get('/project', [ProjectController::class, 'index']);
+Route::get('/', [ProjectController::class, 'index']);
+
