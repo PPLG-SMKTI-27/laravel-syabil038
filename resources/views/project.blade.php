@@ -624,7 +624,7 @@ body {
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Halo, Saya <span>{{ $nama }}</span></h1>
+                <h1>Halo, Saya <span>{{$nama}}</span></h1>
                 <h1>Web Developer</h1>
                 <p>
                     Saya seorang pengembang web berpengalaman yang berspesialisasi dalam membangun aplikasi web modern menggunakan Laravel, React, dan teknologi terbaru lainnya.
@@ -729,60 +729,124 @@ body {
                 <button class="filter-btn" data-filter="fullstack">Full Stack</button>
             </div>
             
-            <div class="portfolio-grid">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item" data-category="laravel">
-                    <div class="portfolio-img">
-                        <div style="width: 100%; height: 200px; background-color: #3b82f6; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
-                            <i class="fab fa-laravel" style="font-size: 4rem;"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Sistem Manajemen Inventory</h3>
-                        <p>Aplikasi web untuk mengelola inventory dengan fitur lengkap menggunakan Laravel dan MySQL.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item" data-category="react">
-                    <div class="portfolio-img">
-                        <div style="width: 100%; height: 200px; background-color: #61dafb; display: flex; align-items: center; justify-content: center; color: #20232a; font-size: 1.5rem;">
-                            <i class="fab fa-react" style="font-size: 4rem;"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Aplikasi Dashboard Analytics</h3>
-                        <p>Dashboard real-time dengan visualisasi data menggunakan React, Chart.js, dan REST API.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item" data-category="fullstack">
-                    <div class="portfolio-img">
-                        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); display: flex; align-items: center; justify-content: center; color: var(--dark-color); font-size: 1.5rem;">
-                            <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--primary-color);"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>Platform e-commerce lengkap dengan Laravel backend dan React frontend.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 4 -->
-                <div class="portfolio-item" data-category="vue">
-                    <div class="portfolio-img">
-                        <div style="width: 100%; height: 200px; background-color: #42b883; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
-                            <i class="fab fa-vuejs" style="font-size: 4rem;"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Aplikasi Manajemen Proyek</h3>
-                        <p>Aplikasi kolaborasi tim dengan Vue.js dan Firebase untuk real-time updates.</p>
-                    </div>
+           <div class="portfolio-grid">
+
+    @foreach ($projects as $project)
+        <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
+            
+            <div class="portfolio-img">
+                <div style="
+                    width: 100%;
+                    height: 200px;
+                    background-color: {{ $project['warna'] }};
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                ">
+                    <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
                 </div>
             </div>
+
+            <div class="portfolio-info">
+                <h3>{{ $project['judul'] }}</h3>
+                <p>{{ $project['deskripsi'] }}</p>
+            </div>
+
         </div>
+    @endforeach
+
+</div>
+
+                
+                <!-- Portfolio Item 2 -->
+               <div class="portfolio-grid">
+
+    @foreach ($projects as $project)
+    <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
+        <div class="portfolio-img">
+            <div style="
+                width: 100%;
+                height: 200px;
+                background-color: {{ $project['warna'] }};
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            ">
+                <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
+            </div>
+        </div>
+
+        <div class="portfolio-info">
+            <h3>{{ $project['judul'] }}</h3>
+            <p>{{ $project['deskripsi'] }}</p>
+        </div>
+    </div>
+    @endforeach
+
+</div>
+
+
+
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-grid">
+
+    @foreach ($projects as $project)
+    <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
+        <div class="portfolio-img">
+            <div style="
+                width: 100%;
+                height: 200px;
+                background-color: {{ $project['warna'] }};
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            ">
+                <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
+            </div>
+        </div>
+
+        <div class="portfolio-info">
+            <h3>{{ $project['judul'] }}</h3>
+            <p>{{ $project['deskripsi'] }}</p>
+        </div>
+    </div>
+    @endforeach
+
+</div>
+
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-grid">
+
+    @foreach ($projects as $project)
+    <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
+        <div class="portfolio-img">
+            <div style="
+                width: 100%;
+                height: 200px;
+                background-color: {{ $project['warna'] }};
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            ">
+                <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
+            </div>
+        </div>
+
+        <div class="portfolio-info">
+            <h3>{{ $project['judul'] }}</h3>
+            <p>{{ $project['deskripsi'] }}</p>
+        </div>
+    </div>
+    @endforeach
+
+</div>
+
     </section>
 
     <!-- Services Section -->
