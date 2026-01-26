@@ -609,6 +609,25 @@ body {
                 <li><a href="#portfolio">Portofolio</a></li>
                 <li><a href="#services">Layanan</a></li>
                 <li><a href="#contact">Kontak</a></li>
+
+                @if(session('login'))
+    <li style="font-weight:600; color:#2563eb;">
+        👋 Hi pengunjung, {{ session('nama') }}
+    </li>
+    <li>
+        <a href="/logout" class="btn" style="padding:8px 20px; background:#ef4444;">
+            Logout
+        </a>
+    </li>
+@else
+    <li>
+        <a href="/login" class="btn" style="padding:8px 20px;">
+            Login
+        </a>
+    </li>
+@endif
+
+
             </ul>
 
             <button class="mobile-menu-btn">
@@ -759,91 +778,7 @@ body {
 </div>
 
                 
-                <!-- Portfolio Item 2 -->
-               <div class="portfolio-grid">
-
-    @foreach ($projects as $project)
-    <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
-        <div class="portfolio-img">
-            <div style="
-                width: 100%;
-                height: 200px;
-                background-color: {{ $project['warna'] }};
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-            ">
-                <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
-            </div>
-        </div>
-
-        <div class="portfolio-info">
-            <h3>{{ $project['judul'] }}</h3>
-            <p>{{ $project['deskripsi'] }}</p>
-        </div>
-    </div>
-    @endforeach
-
-</div>
-
-
-
-                
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-grid">
-
-    @foreach ($projects as $project)
-    <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
-        <div class="portfolio-img">
-            <div style="
-                width: 100%;
-                height: 200px;
-                background-color: {{ $project['warna'] }};
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-            ">
-                <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
-            </div>
-        </div>
-
-        <div class="portfolio-info">
-            <h3>{{ $project['judul'] }}</h3>
-            <p>{{ $project['deskripsi'] }}</p>
-        </div>
-    </div>
-    @endforeach
-
-</div>
-
-                
-                <!-- Portfolio Item 4 -->
-                <div class="portfolio-grid">
-
-    @foreach ($projects as $project)
-    <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
-        <div class="portfolio-img">
-            <div style="
-                width: 100%;
-                height: 200px;
-                background-color: {{ $project['warna'] }};
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-            ">
-                <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
-            </div>
-        </div>
-
-        <div class="portfolio-info">
-            <h3>{{ $project['judul'] }}</h3>
-            <p>{{ $project['deskripsi'] }}</p>
-        </div>
-    </div>
-    @endforeach
+ 
 
 </div>
 
