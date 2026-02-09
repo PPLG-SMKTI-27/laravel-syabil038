@@ -610,19 +610,23 @@ body {
                 <li><a href="#services">Layanan</a></li>
                 <li><a href="#contact">Kontak</a></li>
 
-@if(session('login'))
+@auth
     <li style="margin-left:20px; font-weight:600;">
-        👋 {{ session('nama') }}
+        👋 {{ Auth::user()->name }}
     </li>
     <li>
-        <a href="/logout" style="color:#ef4444;">Logout</a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" style="color:#ef4444; background:none; border:none; cursor:pointer;">
+                Logout
+            </button>
+        </form>
     </li>
 @else
     <li>
-        <a href="/login">Login</a>
+        <a href="{{ route('login') }}">Login</a>
     </li>
-@endif
-
+@endauth
 
             </ul>
 
@@ -639,7 +643,10 @@ body {
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Halo, Saya <span>{{$nama}}</span></h1>
+                <h1>
+    Halo, Saya
+    <span>{{ session('nama', 'Tamu') }}</span>
+</h1>
                 <h1>Web Developer</h1>
                 <p>
                     Saya seorang pengembang web berpengalaman yang berspesialisasi dalam membangun aplikasi web modern menggunakan Laravel, React, dan teknologi terbaru lainnya.
@@ -745,7 +752,7 @@ body {
         </div>
 
         {{-- ================= DATA PORTFOLIO ================= --}}
-        @if ($projects->isEmpty())
+        @if (!isset($projects) || $projects->isEmpty())
             <!-- PESAN JIKA DATA KOSONG -->
             <p style="
                 text-align: center;
