@@ -610,20 +610,16 @@ body {
                 <li><a href="#services">Layanan</a></li>
                 <li><a href="#contact">Kontak</a></li>
 
-                @if(session('login'))
-    <li style="font-weight:600; color:#2563eb;">
-        👋 Hi pengunjung, {{ session('nama') }}
+@if(session('login'))
+    <li style="margin-left:20px; font-weight:600;">
+        👋 {{ session('nama') }}
     </li>
     <li>
-        <a href="/logout" class="btn" style="padding:8px 20px; background:#ef4444;">
-            Logout
-        </a>
+        <a href="/logout" style="color:#ef4444;">Logout</a>
     </li>
 @else
     <li>
-        <a href="/login" class="btn" style="padding:8px 20px;">
-            Login
-        </a>
+        <a href="/login">Login</a>
     </li>
 @endif
 
@@ -733,56 +729,64 @@ body {
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Portofolio</h2>
-                <p>Berikut adalah beberapa proyek terbaru yang telah saya kerjakan menggunakan berbagai teknologi modern.</p>
-            </div>
-            
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="laravel">Laravel</button>
-                <button class="filter-btn" data-filter="react">React</button>
-                <button class="filter-btn" data-filter="vue">Vue.js</button>
-                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-            </div>
-            
-           <div class="portfolio-grid">
-
-    @foreach ($projects as $project)
-        <div class="portfolio-item" data-category="{{ $project['kategori'] }}">
-            
-            <div class="portfolio-img">
-                <div style="
-                    width: 100%;
-                    height: 200px;
-                    background-color: {{ $project['warna'] }};
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                ">
-                    <i class="{{ $project['icon'] }}" style="font-size: 4rem;"></i>
-                </div>
-            </div>
-
-            <div class="portfolio-info">
-                <h3>{{ $project['judul'] }}</h3>
-                <p>{{ $project['deskripsi'] }}</p>
-            </div>
-
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="section-title">
+            <h2>Portofolio</h2>
+            <p>Berikut adalah beberapa proyek terbaru yang telah saya kerjakan menggunakan berbagai teknologi modern.</p>
         </div>
-    @endforeach
 
-</div>
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="laravel">Laravel</button>
+            <button class="filter-btn" data-filter="react">React</button>
+            <button class="filter-btn" data-filter="vue">Vue.js</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+        </div>
 
-                
- 
+        {{-- ================= DATA PORTFOLIO ================= --}}
+        @if ($projects->isEmpty())
+            <!-- PESAN JIKA DATA KOSONG -->
+            <p style="
+                text-align: center;
+                color: #64748b;
+                font-size: 1.1rem;
+                margin-top: 40px;
+            ">
+                Data project belum tersedia.
+            </p>
+        @else
+            <div class="portfolio-grid">
+                @foreach ($projects as $project)
+                    <div class="portfolio-item" data-category="{{ $project->kategori }}">
 
-</div>
+                        <div class="portfolio-img">
+                            <div style="
+                                width: 100%;
+                                height: 200px;
+                                background: {{ $project->warna }};
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: white;
+                            ">
+                                <i class="{{ $project->icon }}" style="font-size: 4rem;"></i>
+                            </div>
+                        </div>
 
-    </section>
+                        <div class="portfolio-info">
+                            <h3>{{ $project->judul }}</h3>
+                            <p>{{ $project->deskripsi }}</p>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+        @endif
+        {{-- ================= END PORTFOLIO ================= --}}
+
+    </div>
+</section>
 
     <!-- Services Section -->
     <section id="services" class="services">
