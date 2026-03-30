@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasFactory;
+   protected $fillable = [
+    'judul',
+    'description',
+    'tech_stack',
+    'project_url'
+];
 
-    protected $table = 'projects';
-
-    protected $fillable = [
-        'judul',
-        'deskripsi',
-        'kategori',
-        'warna',
-        'icon'
-    ];
+protected $casts = [
+    'tech_stack' => 'array'
+];
 }

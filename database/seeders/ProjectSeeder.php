@@ -12,7 +12,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([
             [
                 'judul' => 'Sistem Manajemen Inventor',
-                'deskripsi' => 'Aplikasi web untuk mengelola inventory dengan fitur lengkap menggunakan Laravel dan MySQL.',
+                'description' => 'Aplikasi web untuk mengelola inventory dengan fitur lengkap menggunakan Laravel dan MySQL.', // SUDAH DIUBAH
                 'kategori' => 'laravel',
                 'warna' => '#3b82f6',
                 'icon' => 'fab fa-laravel',
@@ -21,7 +21,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'judul' => 'Aplikasi Dashboard Analytics',
-                'deskripsi' => 'Dashboard real-time dengan visualisasi data menggunakan React, Chart.js, dan REST API.',
+                'description' => 'Dashboard real-time dengan visualisasi data menggunakan React, Chart.js, dan REST API.', // SUDAH DIUBAH
                 'kategori' => 'react',
                 'warna' => '#61dafb',
                 'icon' => 'fab fa-react',
@@ -30,7 +30,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'judul' => 'E-Commerce Platform',
-                'deskripsi' => 'Platform e-commerce lengkap dengan Laravel backend dan React frontend.',
+                'description' => 'Platform e-commerce lengkap dengan Laravel backend dan React frontend.', // SUDAH DIUBAH
                 'kategori' => 'fullstack',
                 'warna' => 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
                 'icon' => 'fas fa-shopping-cart',
@@ -39,7 +39,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'judul' => 'Aplikasi Manajemen Proyek',
-                'deskripsi' => 'Aplikasi kolaborasi tim dengan Vue.js dan Firebase.',
+                'description' => 'Aplikasi kolaborasi tim dengan Vue.js dan Firebase.', // SUDAH DIUBAH
                 'kategori' => 'vue',
                 'warna' => '#42b883',
                 'icon' => 'fab fa-vuejs',

@@ -14,10 +14,10 @@ return new class extends Migration
     Schema::create('projects', function (Blueprint $table) {
         $table->id();
         $table->string('judul');
-        $table->text('deskripsi');
-        $table->string('kategori');
-        $table->string('warna');
-        $table->string('icon');
+        $table->text('description'); // Gunakan 'description' (Inggris) agar cocok dengan Controller
+        $table->text('tech_stack')->nullable(); // Simpan sebagai text/json
+        $table->string('project_url')->nullable();
+        // Kolom lainnya jika perlu
         $table->timestamps();
     });
 }

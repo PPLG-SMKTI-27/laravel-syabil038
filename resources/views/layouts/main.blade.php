@@ -13,5 +13,5 @@
 
     @yield('content')
 
-</body>
+</body>z
 </html>

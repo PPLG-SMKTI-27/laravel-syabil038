@@ -614,10 +614,17 @@ body {
     <li style="margin-left:20px; font-weight:600;">
         👋 {{ Auth::user()->name }}
     </li>
+
     <li>
-        <form method="POST" action="{{ route('logout') }}">
+        <a href="{{ route('dashboard') }}" style="color: var(--primary-color); font-weight: 700;">
+            <i class="fas fa-columns"></i> Dashboard
+        </a>
+    </li>
+
+    <li>
+        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
             @csrf
-            <button type="submit" style="color:#ef4444; background:none; border:none; cursor:pointer;">
+            <button type="submit" style="color:#ef4444; background:none; border:none; cursor:pointer; font-weight:600; font-size: 1rem; padding: 5px 0;">
                 Logout
             </button>
         </form>
@@ -783,7 +790,7 @@ body {
 
                         <div class="portfolio-info">
                             <h3>{{ $project->judul }}</h3>
-                            <p>{{ $project->deskripsi }}</p>
+                            <p>{{ $project->description }}</p>
                         </div>
 
                     </div>
